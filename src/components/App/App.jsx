@@ -27,14 +27,15 @@ export function App() {
       notifyContactExist();
       return;
     } else {
-      setContacts([...contacts, newContact]);
+      setContacts([newContact, ...contacts]);
     }
   };
 
   const deleteContact = id => {
     setContacts(state => {
-      state.filter(contact => contact.id !== id);
+      return state.filter(contact => contact.id !== id);
     });
+    setFilter('');
   };
 
   const handleFilterChange = e => {
